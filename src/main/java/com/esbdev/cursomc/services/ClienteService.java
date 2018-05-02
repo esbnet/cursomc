@@ -49,11 +49,10 @@ public class ClienteService {
 
 	public void delete(Integer id) {
 		find(id);
-
 		try {
 			repo.delete(id);
 		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possível incluir uma Cliente que possui produtos.");
+			throw new DataIntegrityException("Não é possível excluir porque há entidades relacionadas.");
 
 		}
 	}
